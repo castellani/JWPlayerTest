@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+<script src="http://jwpsrv.com/library/MK15PhTpEeOnchIxOUCPzg.js"></script>
+</head>
+
+<body>
+<div id="myElement">Loading the player...</div>
+
+<script type="text/javascript">
+    function SASToken() /* Ajax code to get the token would be placed here */ {
+        var sasToken = "sv=2012-02-12&st=2013-08-28T20%3A04%3A49Z&se=2015-08-28T20%3A04%3A49Z&sr=c&si=c7249905-f9b1-402f-9f71-965c3f3338bc&sig=pBmJYT03aHqB%2FDmWGvQC0vI0BQXE3wzFELZlY2k0o5A%3D";
+        return sasToken;
+    }
+
+    function url() {
+
+        var mediaURL = "https://chcomunicacao.blob.core.windows.net/asset-bc3a0817-11d2-4fb0-afd0-ff6c065a7f71/videoteste_H264_4500kbps_AAC_und_ch2_128kbps.mp4";
+        return mediaURL;
+    }
+</script>
+<script type="text/javascript">
+    jwplayer("myElement").setup({
+        file: url(),
+
+    });
+
+    jwplayer("myElement").onPlay(
+        function () {
+            var file = jwplayer().getPlaylist()[0].sources[0].file;
+            fileSAS = file.contact(SASToken());
+            alert(fileSAS);
+            jwplayer().getPlaylist()[0].sources[0].file = fileSAS;
+            alert(jwplayer().getPlaylist()[0].sources[0].file);
+        });
+</script>
+</body>
+</html>
