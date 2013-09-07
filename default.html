@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
-<script src="http://jwpsrv.com/library/MK15PhTpEeOnchIxOUCPzg.js"></script>
+<script src="http://jwpsrv.com/library/3b+yFBcsEeOdZyIACusDuQ.js"></script>
 </head>
 
 <body>
@@ -29,25 +29,27 @@
 
 </script>
 <script type="text/javascript">
+/*
     jwplayer("myElement").setup({
         file: url(),
 
     });
+*/
+    jwplayer("myElementSAS").setup({
+        file: urlSAS(),
 
-    jwplayer("myElement").onPlay(
+    });
+
+
+    jwplayer("myElementSAS").onBeforePlay(
         function () {
-            var file = jwplayer("myElement").getPlaylist()[0].sources[0].file;
+            var file = jwplayer("myElementSAS").getPlaylist()[0].sources[0].file;
             fileSAS = file.contact(SASToken());
             alert(fileSAS);
             jwplayer().getPlaylist()[0].sources[0].file = fileSAS;
             alert(jwplayer().getPlaylist()[0].sources[0].file);
         });
         
-
-    jwplayer("myElementSAS").setup({
-        file: urlSAS(),
-
-    });
 
 
 </script>
